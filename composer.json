@@ -1,0 +1,25 @@
+{
+  "name": "chriwo/mailhandler",
+  "type": "typo3-cms-extension",
+  "description": "",
+  "keywords": ["TYPO3", "extension", "mail", "form"],
+  "homepage": "https://www.chriwo.de/",
+  "author": [
+    {
+      "name": "Christian Wolfram",
+      "role": "Project Manager",
+      "homepage": "https://www.chriwo.de"
+    }
+  ],
+  "require": {
+    "typo3/cms-core": ">=8.7.0,<9.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "ChriWo\\Mailhandler\\": "Classes/"
+    }
+  },
+  "replace": {
+    "mailhandler": "self.version"
+  }
+}

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2018-03-09T16:32:40Z"
+		  product-name="mailhandler">
+		<header/>
+		<body>
+
+			<trans-unit id="tx_mailhandler_domain_model_mail">
+				<target>E-Mail Vorlagen</target>
+			</trans-unit>
+			<trans-unit id="tx_mailhandler_domain_model_mail.mail_subject">
+				<target>E-Mail Betreff</target>
+			</trans-unit>
+			<trans-unit id="tx_mailhandler_domain_model_mail.mail_body">
+				<target>E-Mail Body</target>
+			</trans-unit>
+			<trans-unit id="tx_mailhandler_domain_model_mail.mail_receiver">
+				<target>Empfänger überschreiben</target>
+			</trans-unit>
+			<trans-unit id="tx_mailhandler_domain_model_mail.mail_sender">
+				<target>Absender überschreiben</target>
+			</trans-unit>
+			<trans-unit id="tx_mailhandler_domain_model_mail.mail_receiver_cc">
+				<target>CC Empfänger</target>
+			</trans-unit>
+			<trans-unit id="tx_mailhandler_domain_model_mail.mail_return_path">
+				<target>ReturnPath</target>
+			</trans-unit>
+			<trans-unit id="tx_mailhandler_domain_model_mail.mail_reply_to">
+				<target>Reply to</target>
+			</trans-unit>
+			<trans-unit id="tx_mailhandler_domain_model_mail.mail_attachment">
+				<target>E-Mail Anhang</target>
+			</trans-unit>
+			<trans-unit id="tx_mailhandler_domain_model_mail.mail_attachment.add">
+				<target>Neuen Anhang hinzufügen</target>
+			</trans-unit>
+
+		</body>
+	</file>
+</xliff>

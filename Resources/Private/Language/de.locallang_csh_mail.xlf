@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2018-03-090T16:32:40Z"
+		  product-name="mailhandler">
+		<header/>
+		<body>
+
+			<trans-unit id="mail_receiver.description">
+				<target>Überschreibt die Empfänger E-Mail Adresse aus dem Feld "Empfänger Optionen".</target>
+			</trans-unit>
+			<trans-unit id="mail_receiver.syntax">
+				<target>Empfängername|name@domain.com</target>
+			</trans-unit>
+			<trans-unit id="mail_sender.description">
+				<target>Überschreibt den Default-Absender einer E-Mail.</target>
+			</trans-unit>
+			<trans-unit id="mail_sender.syntax">
+				<target>Sendername|name@domain.com</target>
+			</trans-unit>
+			<trans-unit id="mail_attachment.description">
+				<target>Dateien welche an die E-Mail angehangen werden</target>
+			</trans-unit>
+
+		</body>
+	</file>
+</xliff>

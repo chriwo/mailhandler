@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2018-03-09T16:32:40Z"
+		  product-name="mailhandler">
+		<header/>
+		<body>
+
+			<trans-unit id="tx_mailhandler_domain_model_mail">
+				<source>Email Templates</source>
+			</trans-unit>
+			<trans-unit id="tx_mailhandler_domain_model_mail.mail_subject">
+				<source>Email subject</source>
+			</trans-unit>
+			<trans-unit id="tx_mailhandler_domain_model_mail.mail_body">
+				<source>Email body</source>
+			</trans-unit>
+			<trans-unit id="tx_mailhandler_domain_model_mail.mail_receiver">
+				<source>Overwrite receiver</source>
+			</trans-unit>
+			<trans-unit id="tx_mailhandler_domain_model_mail.mail_sender">
+				<source>Overwrite sender</source>
+			</trans-unit>
+			<trans-unit id="tx_mailhandler_domain_model_mail.mail_receiver_cc">
+				<source>CC receiver</source>
+			</trans-unit>
+			<trans-unit id="tx_mailhandler_domain_model_mail.mail_return_path">
+				<source>ReturnPath</source>
+			</trans-unit>
+			<trans-unit id="tx_mailhandler_domain_model_mail.mail_reply_to">
+				<source>Reply to</source>
+			</trans-unit>
+			<trans-unit id="tx_mailhandler_domain_model_mail.mail_attachment">
+				<source>Attachment</source>
+			</trans-unit>
+			<trans-unit id="tx_mailhandler_domain_model_mail.mail_attachment.add">
+				<source>Add new attachment</source>
+			</trans-unit>
+
+		</body>
+	</file>
+</xliff>
