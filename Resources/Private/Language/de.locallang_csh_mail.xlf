@@ -5,17 +5,68 @@
 		<header/>
 		<body>
 
-			<trans-unit id="mail_receiver.description">
-				<target>Lass dieses Feld leer, wenn dynamische Empfänger benutzt werden sollen (z.B. bei einem Newsletter)</target>
+			<trans-unit id="mail_subject.description">
+				<target>Betreff der E-Mail. Im Betreff können Variablen für eine dynamische Ersetzung genutzt werden, z.B. {variable}</target>
 			</trans-unit>
-			<trans-unit id="mail_receiver.syntax">
-				<target>Empfängername|name@domain.com</target>
+			<trans-unit id="mail_subject.details">
+				<target>Welche Variablen genutzt werden können ist unterschiedlich und muss beim ihrem TYPO3 Integrator erfragt werden.</target>
+			</trans-unit>
+			<trans-unit id="mail_body.description">
+				<target>In dem E-Mail Text können Variablen für eine dynamische Ersetzung genutzt werden, z.B. {variable}</target>
+			</trans-unit>
+			<trans-unit id="mail_body.details">
+				<target>Welche Variablen genutzt werden können ist unterschiedlich und muss beim ihrem TYPO3 Integrator erfragt werden.</target>
 			</trans-unit>
 			<trans-unit id="mail_sender.description">
 				<target>Überschreibt den Default-Absender einer E-Mail.</target>
 			</trans-unit>
+			<trans-unit id="mail_sender.details">
+				<target>Der Default-Absender einer E-Mail kann im InstallTool unter [MAIL][defaultMailFromAddress] und [MAIL][defaultMailFromName] definiert werden.</target>
+			</trans-unit>
 			<trans-unit id="mail_sender.syntax">
-				<target>Sendername|name@domain.com</target>
+				<target>John Doe|john.d@domain.com</target>
+			</trans-unit>
+			<trans-unit id="mail_receiver.description">
+				<target>Lass dieses Feld leer, wenn dynamische Empfänger benutzt werden sollen (z.B. bei einem Newsletter)</target>
+			</trans-unit>
+			<trans-unit id="mail_receiver.syntax">
+				<target>John Doe|john.d@domain.com</target>
+			</trans-unit>
+			<trans-unit id="mail_receiver_cc.description">
+				<target>Eine oder mehrere Empfänger an die Kopie der E-Mail gesendet werden soll. Pro Zeile ist ein Empfänger erlaubt.</target>
+			</trans-unit>
+			<trans-unit id="mail_receiver_cc.details">
+				<target>Die aufgeführten Empfänger sind für den eigentlichen E-Mail Empfänger sichtbar.</target>
+			</trans-unit>
+			<trans-unit id="mail_receiver_cc.seeAlso">
+				<target>Wikipedia | https://de.wikipedia.org/wiki/Header_(E-Mail)#CC:_Carbon_Copy,_die_Kopie</target>
+			</trans-unit>
+			<trans-unit id="mail_receiver_cc.syntax">
+				<target>John Doe|john.d@domain.com</target>
+			</trans-unit>
+			<trans-unit id="mail_receiver_bcc.description">
+				<target>Eine oder mehrere Empfänger an die eine Kopie der E-Mail gesendet werden soll. Pro Zeile ist ein Empfänger erlaubt.</target>
+			</trans-unit>
+			<trans-unit id="mail_receiver_bcc.details">
+				<target>Die aufgeführten Empfänger sind für den eigentlichen E-Mail Empfänger nicht sichtbar.</target>
+			</trans-unit>
+			<trans-unit id="mail_receiver_bcc.seeAlso">
+				<target>Wikipedia | https://de.wikipedia.org/wiki/Header_(E-Mail)#BCC:_Blind_Carbon_Copy,_Blindkopie</target>
+			</trans-unit>
+			<trans-unit id="mail_receiver_bcc.syntax">
+				<target>John Doe|john.d@domain.com</target>
+			</trans-unit>
+			<trans-unit id="mail_return_path.description">
+				<target>Die optionale Angabe gibt an, an welche Adresse eine Fehlerbenachrichtigung vom Mailserver zurückgeschickt werden soll</target>
+			</trans-unit>
+			<trans-unit id="mail_return_path.syntax">
+				<target>return-path@domain.com</target>
+			</trans-unit>
+			<trans-unit id="mail_reply_to.details">
+				<target>Eine oder mehrere Empfänger, an die eine Antwort auf die E-Mail geschickt werden soll (falls unterschiedlich zum Absender)</target>
+			</trans-unit>
+			<trans-unit id="mail_reply_to.syntax">
+				<target>John Doe|john.d@domain.com</target>
 			</trans-unit>
 			<trans-unit id="mail_attachment.description">
 				<target>Dateien welche an die E-Mail angehangen werden</target>

@@ -5,20 +5,71 @@
 		<header/>
 		<body>
 
-			<trans-unit id="mail_receiver.description">
-				<source>Leave field empty if you have dynamic receiver (e.g. by a newsletter)</source>
+			<trans-unit id="mail_subject.description">
+				<source>Subject of the e-mail. In the subject, variables can be used for dynamic replacement, e.g. {variable}</source>
 			</trans-unit>
-			<trans-unit id="mail_receiver.syntax">
-				<source>Receiver name|name@domain.com</source>
+			<trans-unit id="mail_subject.details">
+				<source>Which variables can be used is different and must be inquired with their TYPO3 integrator.</source>
+			</trans-unit>
+			<trans-unit id="mail_body.description">
+				<source>In the email body variables can be used for dynamic replacement, e.g. {variable}</source>
+			</trans-unit>
+			<trans-unit id="mail_body.details">
+				<source>Which variables can be used is different and must be inquired with their TYPO3 integrator.</source>
 			</trans-unit>
 			<trans-unit id="mail_sender.description">
-				<source>Overwrites the default sender of an email.</source>
+				<source>Overwrites the default sender of an e-mail.</source>
+			</trans-unit>
+			<trans-unit id="mail_sender.details">
+				<source>The default sender of an e-mail can be defined in the InstallTool under [MAIL] [defaultMailFromAddress] and [MAIL] [defaultMailFromName].</source>
 			</trans-unit>
 			<trans-unit id="mail_sender.syntax">
-				<source>Sender name|name@domain.com</source>
+				<source>John Doe|john.d@domain.com</source>
+			</trans-unit>
+			<trans-unit id="mail_receiver.description">
+				<source>Leave this field blank if you want to use dynamic recipients (for example, for a newsletter)</source>
+			</trans-unit>
+			<trans-unit id="mail_receiver.syntax">
+				<source>John Doe|john.d@domain.com</source>
+			</trans-unit>
+			<trans-unit id="mail_receiver_cc.description">
+				<source>One or more recipients should be sent to the copy of the email. One recipient is allowed per line.</source>
+			</trans-unit>
+			<trans-unit id="mail_receiver_cc.details">
+				<source>The listed recipients are visible to the actual e-mail recipient.</source>
+			</trans-unit>
+			<trans-unit id="mail_receiver_cc.seeAlso">
+				<source>Wikipedia | https://en.wikipedia.org/wiki/Carbon_copy</source>
+			</trans-unit>
+			<trans-unit id="mail_receiver_cc.syntax">
+				<source>John Doe|john.d@domain.com</source>
+			</trans-unit>
+			<trans-unit id="mail_receiver_bcc.description">
+				<source>One or more recipients to whom a copy of the e-mail should be sent. One recipient is allowed per line.</source>
+			</trans-unit>
+			<trans-unit id="mail_receiver_bcc.details">
+				<source>The listed recipients are not visible to the actual e-mail recipient.</source>
+			</trans-unit>
+			<trans-unit id="mail_receiver_bcc.seeAlso">
+				<source>Wikipedia | https://en.wikipedia.org/wiki/Blind_carbon_copy</source>
+			</trans-unit>
+			<trans-unit id="mail_receiver_bcc.syntax">
+				<source>John Doe|john.d@domain.com</source>
+			</trans-unit>
+			<trans-unit id="mail_return_path.description">
+				<source>The optional information indicates to which address an error notification is to be returned by the mail server</source>
+			</trans-unit>
+			<trans-unit id="mail_return_path.syntax">
+				<source>return-path@domain.com</source>
+			</trans-unit>
+			<trans-unit id="mail_reply_to.description">
+				<source>One or more recipients to whom a reply to the e-mail should be sent (if different from the sender)</source>
+			</trans-unit>
+			<trans-unit id="mail_reply_to.syntax">
+				<source>John Doe|john.d@domain.com</source>
 			</trans-unit>
 			<trans-unit id="mail_attachment.description">
-				<source>Add static files to email</source>
+				<source>Files which are attached to the e-mail</source>
 			</trans-unit>
 
 		</body>
