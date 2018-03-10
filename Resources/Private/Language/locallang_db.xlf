@@ -17,20 +17,38 @@
 			<trans-unit id="tx_mailhandler_domain_model_mail.mail_receiver">
 				<source>Receiver</source>
 			</trans-unit>
+			<trans-unit id="tx_mailhandler_domain_model_mail.mail_receiver.placeholder">
+				<source>John Doe|john.d@domain.com</source>
+			</trans-unit>
 			<trans-unit id="tx_mailhandler_domain_model_mail.mail_sender">
 				<source>Sender</source>
+			</trans-unit>
+			<trans-unit id="tx_mailhandler_domain_model_mail.mail_sender.placeholder">
+				<source>John Doe|john.d@domain.com</source>
 			</trans-unit>
 			<trans-unit id="tx_mailhandler_domain_model_mail.mail_receiver_cc">
 				<source>CC receiver</source>
 			</trans-unit>
+			<trans-unit id="tx_mailhandler_domain_model_mail.mail_receiver_cc.placeholder">
+				<source>John Doe|john.d@domain.com</source>
+			</trans-unit>
 			<trans-unit id="tx_mailhandler_domain_model_mail.mail_receiver_bcc">
 				<source>BCC receiver</source>
+			</trans-unit>
+			<trans-unit id="tx_mailhandler_domain_model_mail.mail_receiver_bcc.placeholder">
+				<source>John Doe|john.d@domain.com</source>
 			</trans-unit>
 			<trans-unit id="tx_mailhandler_domain_model_mail.mail_return_path">
 				<source>ReturnPath</source>
 			</trans-unit>
+			<trans-unit id="tx_mailhandler_domain_model_mail.mail_return_path.placeholder">
+				<source>return-receiver@domain.com</source>
+			</trans-unit>
 			<trans-unit id="tx_mailhandler_domain_model_mail.mail_reply_to">
 				<source>Reply to</source>
+			</trans-unit>
+			<trans-unit id="tx_mailhandler_domain_model_mail.mail_reply_to.placeholder">
+				<source>John Doe|john.d@domain.com</source>
 			</trans-unit>
 			<trans-unit id="tx_mailhandler_domain_model_mail.mail_attachment">
 				<source>Attachment</source>
