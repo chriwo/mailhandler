@@ -63,19 +63,10 @@ class MailService extends AbstractMailService implements MailServiceInterface
         $mail = array_merge($mail, $overwriteOptions);
 
         if (!GeneralUtility::validEmail($mail['receiverEmail']) || !GeneralUtility::validEmail($mail['senderEmail'])) {
-            echo 'Error - Mail: ' . $mail['receiverEmail'] . ' ' . $mail['senderEmail'] . PHP_EOL;
-
             return false;
         }
 
-        if (self::sendEmail($mail)) {
-            echo 'Mail send to: ' . $mail['receiverEmail'] . PHP_EOL;
-
-            return true;
-        }
-        echo 'Mail NOT send to: ' . $mail['receiverEmail'] . PHP_EOL;
-
-        return false;
+        return self::sendEmail($mail);
     }
 
     /**
