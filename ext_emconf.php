@@ -2,7 +2,7 @@
 
 $EM_CONF[$_EXTKEY] = [
     'title' => 'Mail handler',
-    'description' => '',
+    'description' => 'Easy way to create email templates and use in other TYPO3 extensions',
     'category' => 'module',
     'author' => 'Christian Wolfram',
     'author_email' => 'c.wolfram@chriwo.de',
