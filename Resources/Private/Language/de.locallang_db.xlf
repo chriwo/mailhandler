@@ -15,13 +15,16 @@
 				<target>E-Mail Body</target>
 			</trans-unit>
 			<trans-unit id="tx_mailhandler_domain_model_mail.mail_receiver">
-				<target>Empfänger überschreiben</target>
+				<target>Empfänger</target>
 			</trans-unit>
 			<trans-unit id="tx_mailhandler_domain_model_mail.mail_sender">
-				<target>Absender überschreiben</target>
+				<target>Absender</target>
 			</trans-unit>
 			<trans-unit id="tx_mailhandler_domain_model_mail.mail_receiver_cc">
 				<target>CC Empfänger</target>
+			</trans-unit>
+			<trans-unit id="tx_mailhandler_domain_model_mail.mail_receiver_bcc">
+				<target>BCC Empfänger</target>
 			</trans-unit>
 			<trans-unit id="tx_mailhandler_domain_model_mail.mail_return_path">
 				<target>ReturnPath</target>
@@ -34,6 +37,16 @@
 			</trans-unit>
 			<trans-unit id="tx_mailhandler_domain_model_mail.mail_attachment.add">
 				<target>Neuen Anhang hinzufügen</target>
+			</trans-unit>
+
+			<trans-unit id="tab.senderReceiver">
+				<target>Absender - Empfänger</target>
+			</trans-unit>
+			<trans-unit id="palette.sender">
+				<target>Absender</target>
+			</trans-unit>
+			<trans-unit id="palette.receiver">
+				<target>Empfänger</target>
 			</trans-unit>
 
 		</body>

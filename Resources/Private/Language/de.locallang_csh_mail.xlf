@@ -6,7 +6,7 @@
 		<body>
 
 			<trans-unit id="mail_receiver.description">
-				<target>Überschreibt die Empfänger E-Mail Adresse aus dem Feld "Empfänger Optionen".</target>
+				<target>Lass dieses Feld leer, wenn dynamische Empfänger benutzt werden sollen (z.B. bei einem Newsletter)</target>
 			</trans-unit>
 			<trans-unit id="mail_receiver.syntax">
 				<target>Empfängername|name@domain.com</target>

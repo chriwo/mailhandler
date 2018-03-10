@@ -3,12 +3,11 @@ declare(strict_types=1);
 namespace ChriWo\Mailhandler\Service;
 
 /**
- * Interface MailServiceInterface
+ * Interface MailServiceInterface.
  */
 interface MailServiceInterface
 {
     /**
-     *
      * @param int $templateRecord
      * @param string $receiver
      * @param array $data

@@ -63,10 +63,19 @@ class MailService extends AbstractMailService implements MailServiceInterface
         $mail = array_merge($mail, $overwriteOptions);
 
         if (!GeneralUtility::validEmail($mail['receiverEmail']) || !GeneralUtility::validEmail($mail['senderEmail'])) {
+            echo 'Error - Mail: ' . $mail['receiverEmail'] . ' ' . $mail['senderEmail'] . PHP_EOL;
+
             return false;
         }
 
-        return self::sendEmail($mail);
+        if (self::sendEmail($mail)) {
+            echo 'Mail send to: ' . $mail['receiverEmail'] . PHP_EOL;
+
+            return true;
+        }
+        echo 'Mail NOT send to: ' . $mail['receiverEmail'] . PHP_EOL;
+
+        return false;
     }
 
     /**
@@ -127,7 +136,7 @@ class MailService extends AbstractMailService implements MailServiceInterface
      */
     protected function addBcc(MailMessage $message): MailMessage
     {
-        $bccReceiver = GeneralUtility::trimExplode(PHP_EOL, $this->mailTemplate->getMailReceiverCc(), true);
+        $bccReceiver = GeneralUtility::trimExplode(PHP_EOL, $this->mailTemplate->getMailReceiverBcc(), true);
         if (count($bccReceiver)) {
             foreach ($bccReceiver as $receiver) {
                 $receiverSplit = GeneralUtility::trimExplode('|', $receiver, true);
@@ -184,7 +193,7 @@ class MailService extends AbstractMailService implements MailServiceInterface
     }
 
     /**
-     * Add the email body in html or plain text
+     * Add the email body in html or plain text.
      *
      * @param \TYPO3\CMS\Core\Mail\MailMessage $message
      * @param array $email

@@ -23,7 +23,7 @@ $EM_CONF[$_EXTKEY] = [
     ],
     'autoload' => [
         'psr-4' => [
-            'ChriWo\\Mailhandler\\' => 'Classes'
-        ]
-    ]
+            'ChriWo\\Mailhandler\\' => 'Classes',
+        ],
+    ],
 ];

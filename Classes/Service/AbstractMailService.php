@@ -1,15 +1,22 @@
 <?php
+declare(strict_types=1);
 namespace ChriWo\Mailhandler\Service;
 
 use ChriWo\Mailhandler\Domain\Repository\MailRepository;
+use ChriWo\Mailhandler\Utility\ObjectUtility;
 use TYPO3\CMS\Core\Mail\MailMessage;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 /**
- * Class AbstractMailService
+ * Class AbstractMailService.
  */
 abstract class AbstractMailService
 {
+    /**
+     * @var \ChriWo\Mailhandler\Domain\Repository\MailRepository
+     */
+    protected $mailRepository;
+
     /**
      * @var \ChriWo\Mailhandler\Domain\Model\Mail
      */
@@ -21,16 +28,11 @@ abstract class AbstractMailService
     protected $mailMessage;
 
     /**
-     * @var \ChriWo\Mailhandler\Domain\Repository\MailRepository
-     */
-    protected $mailRepository;
-
-    /**
      * AbstractMailService constructor.
      */
     public function __construct()
     {
-        $this->mailRepository = GeneralUtility::makeInstance(MailRepository::class);
+        $this->mailRepository = ObjectUtility::getObjectManager()->get(MailRepository::class);
         $this->mailMessage = GeneralUtility::makeInstance(MailMessage::class);
     }
 

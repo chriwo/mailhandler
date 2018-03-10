@@ -66,6 +66,7 @@ trait MailServiceTrait
             nl2br(nl2br($email['rteBody'])),
             $email['variables']
         );
+
         return StringUtility::makePlain($bodyText);
     }
 }

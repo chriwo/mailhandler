@@ -3,9 +3,10 @@ declare(strict_types=1);
 namespace ChriWo\Mailhandler\Domain\Model;
 
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
+use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
 /**
- * Class Mail
+ * Class Mail.
  */
 class Mail extends AbstractEntity
 {
@@ -32,6 +33,11 @@ class Mail extends AbstractEntity
     /**
      * @var string
      */
+    protected $mailReceiverBcc;
+
+    /**
+     * @var string
+     */
     protected $mailSender;
 
     /**
@@ -50,17 +56,17 @@ class Mail extends AbstractEntity
     protected $mailAttachment;
 
     /**
-     * Returns the mail subject
+     * Returns the mail subject.
      *
      * @return string
      */
-    public function getMailSubject(): string
+    public function getMailSubject()
     {
         return $this->mailSubject;
     }
 
     /**
-     * Sets the mail subject
+     * Sets the mail subject.
      *
      * @param $mailSubject
      * @return void
@@ -71,17 +77,17 @@ class Mail extends AbstractEntity
     }
 
     /**
-     * Returns the mail body text
+     * Returns the mail body text.
      *
      * @return string
      */
-    public function getMailBody(): string
+    public function getMailBody()
     {
         return $this->mailBody;
     }
 
     /**
-     * Sets the mail body text
+     * Sets the mail body text.
      *
      * @param string $mailBody
      * @return void
@@ -92,17 +98,17 @@ class Mail extends AbstractEntity
     }
 
     /**
-     * Returns the mail receiver
+     * Returns the mail receiver.
      *
      * @return string
      */
-    public function getMailReceiver(): string
+    public function getMailReceiver()
     {
         return $this->mailReceiver;
     }
 
     /**
-     * Set the mail receiver
+     * Set the mail receiver.
      *
      * @param string $mailReceiver
      * @return void
@@ -113,17 +119,17 @@ class Mail extends AbstractEntity
     }
 
     /**
-     * Returns the mail cc receiver
+     * Returns the mail cc receiver.
      *
      * @return string
      */
-    public function getMailReceiverCc(): string
+    public function getMailReceiverCc()
     {
         return $this->mailReceiverCc;
     }
 
     /**
-     * Set the mail cc receiver
+     * Set the mail cc receiver.
      *
      * @param string $mailReceiverCc
      * @return void
@@ -134,17 +140,38 @@ class Mail extends AbstractEntity
     }
 
     /**
-     * Returns the mail sender
+     * Returns the mail bcc receiver.
      *
      * @return string
      */
-    public function getMailSender(): string
+    public function getMailReceiverBcc()
+    {
+        return $this->mailReceiverBcc;
+    }
+
+    /**
+     * Set the mail bcc receiver.
+     *
+     * @param string $mailReceiverBcc
+     * @return void
+     */
+    public function setMailReceiverBcc($mailReceiverBcc)
+    {
+        $this->mailReceiverBcc = $mailReceiverBcc;
+    }
+
+    /**
+     * Returns the mail sender.
+     *
+     * @return string
+     */
+    public function getMailSender()
     {
         return $this->mailSender;
     }
 
     /**
-     * Sets the mail sender
+     * Sets the mail sender.
      *
      * @param string $mailSender
      * @return void
@@ -155,17 +182,17 @@ class Mail extends AbstractEntity
     }
 
     /**
-     * Returns the mail return path
+     * Returns the mail return path.
      *
      * @return string
      */
-    public function getMailReturnPath(): string
+    public function getMailReturnPath()
     {
         return $this->mailReturnPath;
     }
 
     /**
-     * Set the mail return path
+     * Set the mail return path.
      *
      * @param string $mailReturnPath
      * @return void
@@ -176,17 +203,17 @@ class Mail extends AbstractEntity
     }
 
     /**
-     * Returns the mail reply to
+     * Returns the mail reply to.
      *
      * @return string
      */
-    public function getMailReplyTo(): string
+    public function getMailReplyTo()
     {
         return $this->mailReplyTo;
     }
 
     /**
-     * Set the mail reply to
+     * Set the mail reply to.
      *
      * @param string $mailReplyTo
      * @return void
@@ -197,7 +224,7 @@ class Mail extends AbstractEntity
     }
 
     /**
-     * Returns an object storage of file references
+     * Returns an object storage of file references.
      *
      * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage
      */
@@ -207,12 +234,12 @@ class Mail extends AbstractEntity
     }
 
     /**
-     * Sets an object storage of file references
+     * Sets an object storage of file references.
      *
      * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage $mailAttachment
      * @return void
      */
-    public function setMailAttachment($mailAttachment)
+    public function setMailAttachment(ObjectStorage $mailAttachment)
     {
         $this->mailAttachment = $mailAttachment;
     }

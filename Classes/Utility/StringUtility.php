@@ -111,6 +111,7 @@ class StringUtility
     public static function formatHtml($value, $parseFuncTSPath = 'lib.parseFunc_RTE')
     {
         $contentObject = GeneralUtility::makeInstance(ContentObjectRenderer::class);
+
         return $contentObject->parseFunc($value, [], '< ' . $parseFuncTSPath);
     }
 }

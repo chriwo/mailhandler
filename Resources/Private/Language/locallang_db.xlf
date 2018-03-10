@@ -15,13 +15,16 @@
 				<source>Email body</source>
 			</trans-unit>
 			<trans-unit id="tx_mailhandler_domain_model_mail.mail_receiver">
-				<source>Overwrite receiver</source>
+				<source>Receiver</source>
 			</trans-unit>
 			<trans-unit id="tx_mailhandler_domain_model_mail.mail_sender">
-				<source>Overwrite sender</source>
+				<source>Sender</source>
 			</trans-unit>
 			<trans-unit id="tx_mailhandler_domain_model_mail.mail_receiver_cc">
 				<source>CC receiver</source>
+			</trans-unit>
+			<trans-unit id="tx_mailhandler_domain_model_mail.mail_receiver_bcc">
+				<source>BCC receiver</source>
 			</trans-unit>
 			<trans-unit id="tx_mailhandler_domain_model_mail.mail_return_path">
 				<source>ReturnPath</source>
@@ -34,6 +37,16 @@
 			</trans-unit>
 			<trans-unit id="tx_mailhandler_domain_model_mail.mail_attachment.add">
 				<source>Add new attachment</source>
+			</trans-unit>
+
+			<trans-unit id="tab.senderReceiver">
+				<target>Sender - Receiver</target>
+			</trans-unit>
+			<trans-unit id="palette.sender">
+				<target>Sender</target>
+			</trans-unit>
+			<trans-unit id="palette.receiver">
+				<target>Receiver</target>
 			</trans-unit>
 
 		</body>
