@@ -58,13 +58,13 @@
 			</trans-unit>
 
 			<trans-unit id="tab.senderReceiver">
-				<target>Sender - Receiver</target>
+				<source>Sender - Receiver</source>
 			</trans-unit>
 			<trans-unit id="palette.sender">
-				<target>Sender</target>
+				<source>Sender</source>
 			</trans-unit>
 			<trans-unit id="palette.receiver">
-				<target>Receiver</target>
+				<source>Receiver</source>
 			</trans-unit>
 
 		</body>
