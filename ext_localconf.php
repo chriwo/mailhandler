@@ -20,6 +20,20 @@ $boot = function () {
             'className' => \ChriWo\Mailhandler\Service\MailService::class,
         ]
     );
+
+    if (TYPO3_MODE === 'BE') {
+        $icons = [
+            'pagetree-folder-contains-mailhandler' => 'ext-news-folder-tree.svg',
+        ];
+        $iconRegistry = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Imaging\IconRegistry::class);
+        foreach ($icons as $identifier => $path) {
+            $iconRegistry->registerIcon(
+                $identifier,
+                \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
+                ['source' => 'EXT:news/Resources/Public/Icons/' . $path]
+            );
+        }
+    }
 };
 
 $boot();
