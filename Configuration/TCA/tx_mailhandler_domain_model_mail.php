@@ -62,7 +62,6 @@ return [
                 ],
                 'foreign_table' => $model,
                 'foreign_table_where' => 'AND ' . $model . '.pid=###CURRENT_PID### AND ' . $model . '.sys_language_uid IN (-1,0)',
-                'showIconTable' => false,
                 'default' => 0,
             ],
         ],
