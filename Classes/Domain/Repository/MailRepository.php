@@ -21,6 +21,9 @@ class MailRepository extends Repository
         $query->getQuerySettings()->setRespectStoragePage(false);
         $and = [$query->equals('uid', $uid)];
 
-        return $query->matching($query->logicalAnd($and))->execute()->getFirst();
+        return $query
+            ->matching($query->logicalAnd($and))
+            ->execute()
+            ->getFirst();
     }
 }
