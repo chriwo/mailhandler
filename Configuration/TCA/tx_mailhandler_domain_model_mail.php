@@ -1,13 +1,14 @@
 <?php
 defined('TYPO3_MODE') || die();
 
-$coreLanguage = 'LLL:EXT:lang/Resources/Private/Language/locallang_tca.xlf:';
-$llDb = 'LLL:EXT:mailhandler/Resources/Private/Language/locallang_db.xlf:';
 $model = 'tx_mailhandler_domain_model_mail';
+$translationFile = 'LLL:EXT:mailhandler/Resources/Private/Language/locallang_db.xlf';
+$translationFileKey = $translationFile . ':' . $model;
+$coreLanguage = 'LLL:EXT:lang/Resources/Private/Language/locallang_tca.xlf';
 
 return [
     'ctrl' => [
-        'title' => $llDb . $model,
+        'title' => $translationFile,
         'label' => 'mail_subject',
         'hideAtCopy' => true,
         'tstamp' => 'tstamp',
@@ -16,13 +17,14 @@ return [
         'versioningWS' => true,
         'origUid' => 't3_origuid',
         'editlock' => 'editlock',
-        'dividers2tabs' => true,
         'languageField' => 'sys_language_uid',
         'transOrigPointerField' => 'l10n_parent',
         'transOrigDiffSourceField' => 'l10n_diffsource',
         'delete' => 'deleted',
         'enablecolumns' => [
             'disabled' => 'hidden',
+            'starttime' => 'starttime',
+            'endtime' => 'endtime',
         ],
         'searchFields' => 'mail_subject,mail_receiver,mail_sender',
         'iconfile' => 'EXT:mailhandler/Resources/Public/Icon/Backend/mailhandler_domain_model_mail.png',
@@ -38,13 +40,12 @@ return [
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
-                'foreign_table' => 'sys_language',
-                'foreign_table_where' => 'ORDER BY sys_language.title',
+                'special' => 'languages',
                 'items' => [
                     [
                         'LLL:EXT:lang/Resources/Private/Language/locallang_general.xlf:LGL.allLanguages',
                         -1,
-                        'flags-multiple',
+                        'flags-multiple'
                     ],
                 ],
                 'default' => 0,
@@ -61,7 +62,8 @@ return [
                     ['', 0],
                 ],
                 'foreign_table' => $model,
-                'foreign_table_where' => 'AND ' . $model . '.pid=###CURRENT_PID### AND ' . $model . '.sys_language_uid IN (-1,0)',
+                'foreign_table_where' => 'AND ' . $model . '.pid=###CURRENT_PID### AND '
+                    . $model . '.sys_language_uid IN (-1,0)',
                 'default' => 0,
             ],
         ],
@@ -109,18 +111,49 @@ return [
                 'type' => 'passthrough',
             ],
         ],
+        'starttime' => [
+            'exclude' => true,
+            'label' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:starttime_formlabel',
+            'config' => [
+                'type' => 'input',
+                'renderType' => 'inputDateTime',
+                'size' => 16,
+                'eval' => 'datetime,int',
+                'default' => 0,
+                'behaviour' => [
+                    'allowLanguageSynchronization' => true,
+                ],
+            ]
+        ],
+        'endtime' => [
+            'exclude' => true,
+            'label' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:endtime_formlabel',
+            'config' => [
+                'type' => 'input',
+                'renderType' => 'inputDateTime',
+                'size' => 16,
+                'eval' => 'datetime,int',
+                'default' => 0,
+                'behaviour' => [
+                    'allowLanguageSynchronization' => true,
+                ],
+            ]
+        ],
         'editlock' => [
             'exclude' => true,
-            'l10n_mode' => 'mergeIfNotBlank',
-            'label' => '' . $coreLanguage . 'editlock',
+            'label' => $coreLanguage . ':editlock',
             'config' => [
                 'type' => 'check',
+                'default' => 0,
+                'behaviour' => [
+                    'allowLanguageSynchronization' => true,
+                ],
             ],
         ],
         'mail_subject' => [
             'exclude' => false,
             'l10n_mode' => 'prefixLangTitle',
-            'label' => $llDb . $model . '.mail_subject',
+            'label' => $translationFileKey . '.mail_subject',
             'config' => [
                 'type' => 'input',
                 'size' => 30,
@@ -129,15 +162,13 @@ return [
         ],
         'mail_body' => [
             'exclude' => false,
-            'l10n_mode' => 'noCopy',
-            'label' => $llDb . $model . '.mail_body',
+            'label' => $translationFileKey . '.mail_body',
             'config' => [
                 'type' => 'text',
                 'cols' => 30,
                 'rows' => 5,
                 'softref' => 'rtehtmlarea_images,typolink_tag,images,email[subst],url',
                 'wizards' => [
-                    '_PADDING' => 2,
                     'RTE' => [
                         'notNewRecords' => 1,
                         'RTEonly' => 1,
@@ -154,83 +185,97 @@ return [
         ],
         'mail_receiver' => [
             'exclude' => true,
-            'l10n_mode' => 'mergeIfNotBlank',
-            'label' => $llDb . $model . '.mail_receiver',
+            'label' => $translationFileKey . '.mail_receiver',
             'config' => [
                 'type' => 'input',
                 'size' => 30,
-                'placeholder' => $llDb . $model . '.mail_receiver.placeholder',
+                'placeholder' => $translationFileKey . '.mail_receiver.placeholder',
                 'eval' => 'trim',
+                'behaviour' => [
+                    'allowLanguageSynchronization' => true,
+                ],
             ],
         ],
         'mail_sender' => [
             'exclude' => true,
-            'l10n_mode' => 'mergeIfNotBlank',
-            'label' => $llDb . $model . '.mail_sender',
+            'label' => $translationFileKey . '.mail_sender',
             'config' => [
                 'type' => 'input',
                 'size' => 30,
-                'placeholder' => $llDb . $model . '.mail_sender.placeholder',
+                'placeholder' => $translationFileKey . '.mail_sender.placeholder',
                 'eval' => 'trim',
+                'behaviour' => [
+                    'allowLanguageSynchronization' => true,
+                ],
             ],
         ],
         'mail_receiver_cc' => [
             'exclude' => false,
-            'l10n_mode' => 'mergeIfNotBlank',
-            'label' => $llDb . $model . '.mail_receiver_cc',
+            'label' => $translationFileKey . '.mail_receiver_cc',
             'config' => [
                 'type' => 'text',
                 'cols' => 30,
                 'rows' => 3,
                 'wrap' => 'off',
-                'placeholder' => $llDb . $model . '.mail_receiver_cc.placeholder',
+                'placeholder' => $translationFileKey . '.mail_receiver_cc.placeholder',
                 'eval' => 'trim',
+                'behaviour' => [
+                    'allowLanguageSynchronization' => true,
+                ],
             ],
         ],
         'mail_receiver_bcc' => [
             'exclude' => false,
-            'l10n_mode' => 'mergeIfNotBlank',
-            'label' => $llDb . $model . '.mail_receiver_bcc',
+            'label' => $translationFileKey . '.mail_receiver_bcc',
             'config' => [
                 'type' => 'text',
                 'cols' => 30,
                 'rows' => 3,
                 'wrap' => 'off',
-                'placeholder' => $llDb . $model . '.mail_receiver_bcc.placeholder',
+                'placeholder' => $translationFileKey . '.mail_receiver_bcc.placeholder',
                 'eval' => 'trim',
+                'behaviour' => [
+                    'allowLanguageSynchronization' => true,
+                ],
             ],
         ],
         'mail_return_path' => [
             'exclude' => false,
-            'label' => $llDb . $model . '.mail_return_path',
+            'label' => $translationFileKey . '.mail_return_path',
             'config' => [
                 'type' => 'input',
                 'size' => 30,
-                'placeholder' => $llDb . $model . '.mail_return_path.placeholder',
+                'placeholder' => $translationFileKey . '.mail_return_path.placeholder',
                 'eval' => 'trim,email',
+                'behaviour' => [
+                    'allowLanguageSynchronization' => true,
+                ],
             ],
         ],
         'mail_reply_to' => [
             'exclude' => false,
-            'label' => $llDb . $model . '.mail_reply_to',
+            'label' => $translationFileKey . '.mail_reply_to',
             'config' => [
                 'type' => 'text',
                 'cols' => 30,
                 'rows' => 3,
                 'wrap' => 'off',
-                'placeholder' => $llDb . $model . '.mail_reply_to.placeholder',
+                'placeholder' => $translationFileKey . '.mail_reply_to.placeholder',
                 'eval' => 'trim',
+                'behaviour' => [
+                    'allowLanguageSynchronization' => true,
+                ],
             ],
         ],
         'mail_attachment' => [
             'exclude' => true,
             'l10n_mode' => 'mergeIfNotBlank',
-            'label' => $llDb . $model . '.mail_attachment',
+            'label' => $translationFileKey . '.mail_attachment',
             'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
                 'mail_attachment',
                 [
                     'appearance' => [
-                        'createNewRelationLinkTitle' => $llDb . $model . '.mail_attachment.add',
+                        'createNewRelationLinkTitle' => $translationFileKey . '.mail_attachment.add',
                         'showPossibleLocalizationRecords' => true,
                         'showRemovedLocalizationRecords' => true,
                         'showAllLocalizationLink' => true,
@@ -246,46 +291,27 @@ return [
                     'foreign_types' => [
                         '0' => [
                             'showitem' => '
-						--palette--;' . $coreLanguage . 'sys_file_reference.imageoverlayPalette;imageoverlayPalette,
+						--palette--;' . $coreLanguage . ':sys_file_reference.imageoverlayPalette;imageoverlayPalette,
 						--palette--;;filePalette',
                         ],
                         \TYPO3\CMS\Core\Resource\File::FILETYPE_TEXT => [
                             'showitem' => '
-						--palette--;' . $coreLanguage . 'sys_file_reference.imageoverlayPalette;imageoverlayPalette,
+						--palette--;' . $coreLanguage . ':sys_file_reference.imageoverlayPalette;imageoverlayPalette,
 						--palette--;;filePalette',
                         ],
                         \TYPO3\CMS\Core\Resource\File::FILETYPE_IMAGE => [
                             'showitem' => '
-						--palette--;' . $coreLanguage . 'sys_file_reference.imageoverlayPalette;imageoverlayPalette,
-						--palette--;;filePalette',
-                        ],
-                        \TYPO3\CMS\Core\Resource\File::FILETYPE_AUDIO => [
-                            'showitem' => '
-						--palette--;' . $coreLanguage . 'sys_file_reference.imageoverlayPalette;imageoverlayPalette,
-						--palette--;;filePalette',
-                        ],
-                        \TYPO3\CMS\Core\Resource\File::FILETYPE_VIDEO => [
-                            'showitem' => '
-						--palette--;' . $coreLanguage . 'sys_file_reference.imageoverlayPalette;imageoverlayPalette,
+						--palette--;' . $coreLanguage . ':sys_file_reference.imageoverlayPalette;imageoverlayPalette,
 						--palette--;;filePalette',
                         ],
                         \TYPO3\CMS\Core\Resource\File::FILETYPE_APPLICATION => [
                             'showitem' => '
-                        --palette--;' . $coreLanguage . 'sys_file_reference.imageoverlayPalette;imageoverlayPalette,
+                        --palette--;' . $coreLanguage . ':sys_file_reference.imageoverlayPalette;imageoverlayPalette,
                         --palette--;;filePalette',
                         ],
                     ],
-                    'overrideChildTca' => [
-                        'types' => [
-                            \TYPO3\CMS\Core\Resource\File::FILETYPE_IMAGE => [
-                                'showitem' => '
-                            --palette--;' . $coreLanguage . 'sys_file_reference.imageoverlayPalette;imageoverlayPalette,
-                            --palette--;;filePalette',
-                            ],
-                        ],
-                    ],
                 ],
-                $GLOBALS['TYPO3_CONF_VARS']['SYS']['mediafile_ext']
+                'jpg,jpeg,png,pdf'
             ),
         ],
     ],
@@ -297,22 +323,35 @@ return [
                 ],
             ],
             'showitem' => 'mail_subject, mail_body, mail_attachment,'
-                . '--div--;' . $llDb . 'tab.senderReceiver,'
-                . '---palette--;' . $llDb . 'palette.sender;paletteSender,'
-                . '---palette--;' . $llDb . 'palette.receiver;paletteReceiver,'
+                . '--div--;' . $translationFile . ':tab.senderReceiver,'
+                . '---palette--;;paletteSender,'
+                . '---palette--;;paletteReceiver,'
                 . '--div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access,'
-                . '--palette--;;paletteCore,editlock',
+                . '--palette--;;paletteCore,'
+                . '--palette--;;paletteAccess',
         ],
     ],
     'palettes' => [
         'paletteCore' => [
             'showitem' => 'hidden, sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource,',
         ],
+        'paletteAccess' => [
+            'label' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.access',
+            'showitem' => '
+                starttime;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:starttime_formlabel,
+                endtime;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:endtime_formlabel,
+                --linebreak--,
+                fe_group;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:fe_group_formlabel,
+                --linebreak--,editlock
+            ',
+        ],
         'paletteReceiver' => [
+            'label' => $translationFile . ':palette.receiver',
             'showitem' => 'mail_receiver, --linebreak--, mail_receiver_cc, mail_receiver_bcc, --linebreak--,'
                 . 'mail_reply_to, mail_return_path',
         ],
         'paletteSender' => [
+            'label' => $translationFile . ':palette.sender',
             'showitem' => 'mail_sender',
         ],
     ],

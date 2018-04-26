@@ -21,6 +21,8 @@ CREATE TABLE tx_mailhandler_domain_model_mail (
 	deleted tinyint(4) unsigned DEFAULT '0' NOT NULL,
 	hidden tinyint(4) unsigned DEFAULT '0' NOT NULL,
 	sorting int(11) DEFAULT '0' NOT NULL,
+	starttime INT(11) UNSIGNED DEFAULT '0' NOT NULL,
+	endtime INT(11) UNSIGNED DEFAULT '0' NOT NULL,
 
 	t3ver_oid int(11) DEFAULT '0' NOT NULL,
 	t3ver_id int(11) DEFAULT '0' NOT NULL,
