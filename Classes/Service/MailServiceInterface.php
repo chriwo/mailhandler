@@ -12,7 +12,13 @@ interface MailServiceInterface
      * @param string $receiver
      * @param array $data
      * @param array $overrideOptions
+     * @param array $additionalAttachment
      * @return bool
      */
-    public function process($templateRecord, $receiver, array $data, array $overrideOptions): bool;
+    public function process(
+        $templateRecord,
+        $receiver,
+        array $data,
+        array $overrideOptions,
+        array $additionalAttachment): bool;
 }

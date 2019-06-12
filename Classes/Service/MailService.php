@@ -14,6 +14,8 @@ class MailService extends AbstractMailService implements MailServiceInterface
 {
     use MailServiceTrait;
 
+    protected $attachments = [];
+
     /**
      * Send an email to insurer.
      *
@@ -21,6 +23,7 @@ class MailService extends AbstractMailService implements MailServiceInterface
      * @param string $receiver
      * @param array $data
      * @param array $overwriteOptions
+     * @param array $additionalAttachment
      * @throws \Exception
      * @return bool
      */
@@ -28,9 +31,11 @@ class MailService extends AbstractMailService implements MailServiceInterface
         $templateRecord,
         $receiver,
         array $data = [],
-        array $overwriteOptions = []
+        array $overwriteOptions = [],
+        array $additionalAttachment = []
     ): bool {
         $submitResult = false;
+        $this->attachments = $additionalAttachment;
 
         $this->loadMailTemplateRecord($templateRecord);
         if (!$this->mailTemplate instanceof Mail) {
@@ -221,6 +226,16 @@ class MailService extends AbstractMailService implements MailServiceInterface
                         \Swift_Attachment::fromPath($attachmentFilePath)
                     );
                 }
+            }
+        }
+
+        if (!empty($this->attachments)) {
+            foreach ($this->attachments as $attachment) {
+                $message->attach(\Swift_Attachment::newInstance(
+                    $attachment['fileContent'],
+                    $attachment['fileName'],
+                    $attachment['contentType']
+                ));
             }
         }
 
