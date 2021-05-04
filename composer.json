@@ -30,7 +30,7 @@
 	},
 	"autoload": {
 		"psr-4": {
-			"ChriWo\\Mailhandler\\": "Classes/"
+			"ChriWo\\Mailhandler\\": "Classes"
 		}
 	},
 	"extra" : {
