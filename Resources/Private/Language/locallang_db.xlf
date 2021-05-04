@@ -8,6 +8,9 @@
 			<trans-unit id="tx_mailhandler_domain_model_mail">
 				<source>Email Templates</source>
 			</trans-unit>
+			<trans-unit id="tx_mailhandler_domain_model_mail.title">
+				<source>Internal title</source>
+			</trans-unit>
 			<trans-unit id="tx_mailhandler_domain_model_mail.mail_subject">
 				<source>Email subject</source>
 			</trans-unit>
