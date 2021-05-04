@@ -6,60 +6,79 @@
 		<body>
 
 			<trans-unit id="mail_subject.description">
+				<source>Subject of the e-mail. In the subject, variables can be used for dynamic replacement, e.g. {variable}</source>
 				<target>Betreff der E-Mail. Im Betreff können Variablen für eine dynamische Ersetzung genutzt werden, z.B. {variable}</target>
 			</trans-unit>
 			<trans-unit id="mail_subject.details">
+				<source>Which variables can be used is different and must be inquired with their TYPO3 integrator.</source>
 				<target>Welche Variablen genutzt werden können ist unterschiedlich und muss beim ihrem TYPO3 Integrator erfragt werden.</target>
 			</trans-unit>
 			<trans-unit id="mail_body.description">
+				<source>In the email body variables can be used for dynamic replacement, e.g. {variable}</source>
 				<target>In dem E-Mail Text können Variablen für eine dynamische Ersetzung genutzt werden, z.B. {variable}</target>
 			</trans-unit>
 			<trans-unit id="mail_body.details">
+				<source>Which variables can be used is different and must be inquired with their TYPO3 integrator.</source>
 				<target>Welche Variablen genutzt werden können ist unterschiedlich und muss beim ihrem TYPO3 Integrator erfragt werden.</target>
 			</trans-unit>
 			<trans-unit id="mail_sender.description">
+				<source>Overwrites the default sender of an e-mail.</source>
 				<target>Überschreibt den Default-Absender einer E-Mail.</target>
 			</trans-unit>
 			<trans-unit id="mail_sender.details">
+				<source>The default sender of an e-mail can be defined in the InstallTool under [MAIL] [defaultMailFromAddress] and [MAIL] [defaultMailFromName].</source>
 				<target>Der Default-Absender einer E-Mail kann im InstallTool unter [MAIL][defaultMailFromAddress] und [MAIL][defaultMailFromName] definiert werden.</target>
 			</trans-unit>
 			<trans-unit id="mail_sender.syntax">
+				<source>John Doe|john.d@domain.com</source>
 				<target>John Doe|john.d@domain.com</target>
 			</trans-unit>
 			<trans-unit id="mail_receiver.description">
-				<target>Lass dieses Feld leer, wenn dynamische Empfänger benutzt werden sollen (z.B. bei einem Newsletter)</target>
+				<source>Leave this field blank if you want to use dynamic recipients (for example, for a newsletter)</source>
+				<target>Lassen Sie dieses Feld leer, wenn dynamische Empfänger benutzt werden sollen (z.B. bei einem Newsletter)</target>
 			</trans-unit>
 			<trans-unit id="mail_receiver.syntax">
+				<source>John Doe|john.d@domain.com</source>
 				<target>John Doe|john.d@domain.com</target>
 			</trans-unit>
 			<trans-unit id="mail_receiver_cc.description">
-				<target>Eine oder mehrere Empfänger an die Kopie der E-Mail gesendet werden soll. Pro Zeile ist ein Empfänger erlaubt.</target>
+				<source>One or more recipients should be sent to the copy of the email. One recipient is allowed per line.</source>
+				<target>Ein oder mehrere Empfänger an die eine Kopie der E-Mail gesendet werden soll. Pro Zeile ist ein Empfänger erlaubt.</target>
 			</trans-unit>
 			<trans-unit id="mail_receiver_cc.details">
+				<source>The listed recipients are visible to the actual e-mail recipient.</source>
 				<target>Die aufgeführten Empfänger sind für den eigentlichen E-Mail Empfänger sichtbar.</target>
 			</trans-unit>
 			<trans-unit id="mail_receiver_cc.seeAlso">
+				<source>Wikipedia | https://en.wikipedia.org/wiki/Carbon_copy</source>
 				<target>Wikipedia | https://de.wikipedia.org/wiki/Header_(E-Mail)#CC:_Carbon_Copy,_die_Kopie</target>
 			</trans-unit>
 			<trans-unit id="mail_receiver_cc.syntax">
+				<source>John Doe|john.d@domain.com</source>
 				<target>John Doe|john.d@domain.com</target>
 			</trans-unit>
 			<trans-unit id="mail_receiver_bcc.description">
-				<target>Eine oder mehrere Empfänger an die eine Kopie der E-Mail gesendet werden soll. Pro Zeile ist ein Empfänger erlaubt.</target>
+				<source>One or more recipients to whom a copy of the e-mail should be sent. One recipient is allowed per line.</source>
+				<target>Ein oder mehrere Empfänger an die eine Kopie der E-Mail gesendet werden soll. Pro Zeile ist ein Empfänger erlaubt.</target>
 			</trans-unit>
 			<trans-unit id="mail_receiver_bcc.details">
+				<source>The listed recipients are not visible to the actual e-mail recipient.</source>
 				<target>Die aufgeführten Empfänger sind für den eigentlichen E-Mail Empfänger nicht sichtbar.</target>
 			</trans-unit>
 			<trans-unit id="mail_receiver_bcc.seeAlso">
+				<source>Wikipedia | https://en.wikipedia.org/wiki/Blind_carbon_copy</source>
 				<target>Wikipedia | https://de.wikipedia.org/wiki/Header_(E-Mail)#BCC:_Blind_Carbon_Copy,_Blindkopie</target>
 			</trans-unit>
 			<trans-unit id="mail_receiver_bcc.syntax">
+				<source>John Doe|john.d@domain.com</source>
 				<target>John Doe|john.d@domain.com</target>
 			</trans-unit>
 			<trans-unit id="mail_return_path.description">
+				<source>The optional information indicates to which address an error notification is to be returned by the mail server</source>
 				<target>Die optionale Angabe gibt an, an welche Adresse eine Fehlerbenachrichtigung vom Mailserver zurückgeschickt werden soll</target>
 			</trans-unit>
 			<trans-unit id="mail_return_path.syntax">
+				<source>return-path@domain.com</source>
 				<target>return-path@domain.com</target>
 			</trans-unit>
 			<trans-unit id="mail_reply_to.description">
@@ -67,9 +86,11 @@
 				<target>Ein oder mehrere Empfänger, an die eine Antwort auf die E-Mail geschickt werden soll (falls unterschiedlich zum Absender)</target>
 			</trans-unit>
 			<trans-unit id="mail_reply_to.syntax">
+				<source>John Doe|john.d@domain.com</source>
 				<target>John Doe|john.d@domain.com</target>
 			</trans-unit>
 			<trans-unit id="mail_attachment.description">
+				<source>Files which are attached to the e-mail</source>
 				<target>Dateien welche an die E-Mail angehangen werden</target>
 			</trans-unit>
 
