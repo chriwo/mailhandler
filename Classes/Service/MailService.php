@@ -198,7 +198,7 @@ class MailService extends AbstractMailService implements MailServiceInterface
      */
     protected function addHtmlBody(MailMessage $message, array $email): MailMessage
     {
-        if ('html' === $email['format']) {
+        if ('plain' !== $email['format']) {
             $message->html($this->getHtmlBody($email), 'text/html');
         }
 
@@ -214,7 +214,7 @@ class MailService extends AbstractMailService implements MailServiceInterface
      */
     protected function addPlainBody(MailMessage $message, array $email): MailMessage
     {
-        if ('plain' === $email['format']) {
+        if ('html' !== $email['format']) {
             $message->text($this->getPlainBody($email), 'text/plain');
         }
 
