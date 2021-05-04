@@ -94,7 +94,8 @@ class MailService extends AbstractMailService implements MailServiceInterface
         $message = $this->addBcc($message);
         $message = $this->addReplyTo($message);
         $message = $this->addReturnPath($message);
-        $message = $this->addEmailBody($message, $email);
+        $message = $this->addHtmlBody($message, $email);
+        $message = $this->addPlainBody($message, $email);
         $message = $this->addAttachments($message);
 
         $message->send();
@@ -189,18 +190,32 @@ class MailService extends AbstractMailService implements MailServiceInterface
     }
 
     /**
-     * Add the email body in html or plain text.
+     * Add the html email body.
      *
      * @param \TYPO3\CMS\Core\Mail\MailMessage $message
      * @param array $email
      * @return \TYPO3\CMS\Core\Mail\MailMessage
      */
-    protected function addEmailBody(MailMessage $message, array $email): MailMessage
+    protected function addHtmlBody(MailMessage $message, array $email): MailMessage
     {
-        if ('html' !== $email['format']) {
-            $message->addPart($this->getHtmlBody($email), 'text/html');
-        } else {
-            $message->addPart($this->getPlainBody($email), 'text/plain');
+        if ('html' === $email['format']) {
+            $message->html($this->getHtmlBody($email), 'text/html');
+        }
+
+        return $message;
+    }
+
+    /**
+     * Add the plaintext email body.
+     *
+     * @param \TYPO3\CMS\Core\Mail\MailMessage $message
+     * @param array $email
+     * @return \TYPO3\CMS\Core\Mail\MailMessage
+     */
+    protected function addPlainBody(MailMessage $message, array $email): MailMessage
+    {
+        if ('plain' === $email['format']) {
+            $message->text($this->getPlainBody($email), 'text/plain');
         }
 
         return $message;
