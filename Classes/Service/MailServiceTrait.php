@@ -62,11 +62,6 @@ trait MailServiceTrait
      */
     protected function getPlainBody(array $email): string
     {
-        $bodyText = StringUtility::fluidParseString(
-            nl2br(nl2br($email['rteBody'])),
-            $email['variables']
-        );
-
-        return StringUtility::makePlain($bodyText);
+        return StringUtility::makePlain($this->getHtmlBody($email));
     }
 }
