@@ -1,40 +1,37 @@
 <?php
 defined('TYPO3_MODE') || die();
 
-$boot = function () {
-    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addService(
-        'mailhandler',
-        // Service type
-        'submitmail',
-        // Service key
-        'tx_mailhandler_submitmail',
-        [
-            'title' => 'Mailhandler',
-            'description' => 'Mailhandling',
-            'subtype' => '',
-            'available' => true,
-            'priority' => 60,
-            'quality' => 80,
-            'os' => '',
-            'exec' => '',
-            'className' => \ChriWo\Mailhandler\Service\MailService::class,
-        ]
-    );
-
+(function () {
     if (TYPO3_MODE === 'BE') {
-        $icons = [
-            'pagetree-folder-contains-mailhandler' => 'ext-news-folder-tree.svg',
-        ];
+        \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addService(
+            'mailhandler',
+            'submitmail',
+            'tx_mailhandler_submitmail',
+            [
+                'title' => 'Mailhandler',
+                'description' => 'Mailhandling',
+                'subtype' => '',
+                'available' => true,
+                'priority' => 60,
+                'quality' => 80,
+                'os' => '',
+                'exec' => '',
+                'className' => \ChriWo\Mailhandler\Service\MailService::class,
+            ]
+        );
+
         $iconRegistry = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Imaging\IconRegistry::class);
-        foreach ($icons as $identifier => $path) {
+        $icons = [
+            'pagetree-folder-contains-mailhandler' => 'Module/module_mail.png',
+            'mailhandler-table-mail' => 'Table/table_mail.png'
+        ];
+
+        foreach ($icons as $identifier => $file) {
             $iconRegistry->registerIcon(
                 $identifier,
-                \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
-                ['source' => 'EXT:news/Resources/Public/Icons/' . $path]
+                \TYPO3\CMS\Core\Imaging\IconProvider\BitmapIconProvider::class,
+                ['source' => 'EXT:mailhandler/Resources/Public/Backend/Icon/' . $file]
             );
         }
     }
-};
-
-$boot();
-unset($boot);
+})();
