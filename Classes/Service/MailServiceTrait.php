@@ -15,7 +15,7 @@ trait MailServiceTrait
      * @param string $overrideReceiver
      * @return void
      */
-    protected function addEmailReceiver(array &$email, $receiver, $overrideReceiver = '')
+    protected function addEmailReceiver(array &$email, string $receiver, string $overrideReceiver = '')
     {
         $mailReceiver = GeneralUtility::trimExplode('|', $receiver, true);
         $email['receiverEmail'] = $mailReceiver[1];
@@ -36,7 +36,7 @@ trait MailServiceTrait
      * @throws \Exception
      * @return void
      */
-    protected function addEmailSender(array &$email, $sender)
+    protected function addEmailSender(array &$email, string $sender)
     {
         $mailSender = GeneralUtility::trimExplode('|', $sender, true);
         $email['senderName'] = $mailSender[0];

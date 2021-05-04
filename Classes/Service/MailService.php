@@ -54,7 +54,7 @@ class MailService extends AbstractMailService implements MailServiceInterface
      * @throws \Exception
      * @return bool
      */
-    protected function buildEmail($mailReceiver, array $data = [], array $overrideOptions = []): bool
+    protected function buildEmail(string $mailReceiver, array $data = [], array $overrideOptions = []): bool
     {
         $mail = [
             'subject' => $this->mailTemplate->getMailSubject(),

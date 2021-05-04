@@ -40,7 +40,7 @@ abstract class AbstractMailService
      * @param int $record
      * @return void
      */
-    protected function loadMailTemplateRecord($record)
+    protected function loadMailTemplateRecord(int $record)
     {
         $this->mailTemplate = $this->mailRepository->findByUid($record);
     }

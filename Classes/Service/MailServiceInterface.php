@@ -16,8 +16,8 @@ interface MailServiceInterface
      * @return bool
      */
     public function process(
-        $templateRecord,
-        $receiver,
+        int $templateRecord,
+        string $receiver,
         array $data,
         array $overrideOptions,
         array $additionalAttachment): bool;

@@ -13,42 +13,42 @@ class Mail extends AbstractEntity
     /**
      * @var string
      */
-    protected $mailSubject;
+    protected string $mailSubject;
 
     /**
      * @var string
      */
-    protected $mailBody;
+    protected string $mailBody;
 
     /**
      * @var string
      */
-    protected $mailReceiver;
+    protected string $mailReceiver;
 
     /**
      * @var string
      */
-    protected $mailReceiverCc;
+    protected string $mailReceiverCc;
 
     /**
      * @var string
      */
-    protected $mailReceiverBcc;
+    protected string $mailReceiverBcc;
 
     /**
      * @var string
      */
-    protected $mailSender;
+    protected string $mailSender;
 
     /**
      * @var string
      */
-    protected $mailReturnPath;
+    protected string $mailReturnPath;
 
     /**
      * @var string
      */
-    protected $mailReplyTo;
+    protected string $mailReplyTo;
 
     /**
      * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\FileReference>
@@ -60,7 +60,7 @@ class Mail extends AbstractEntity
      *
      * @return string
      */
-    public function getMailSubject()
+    public function getMailSubject(): string
     {
         return $this->mailSubject;
     }
@@ -68,10 +68,10 @@ class Mail extends AbstractEntity
     /**
      * Sets the mail subject.
      *
-     * @param $mailSubject
+     * @param string $mailSubject
      * @return void
      */
-    public function setMailSubject($mailSubject)
+    public function setMailSubject(string $mailSubject)
     {
         $this->mailSubject = $mailSubject;
     }
@@ -81,7 +81,7 @@ class Mail extends AbstractEntity
      *
      * @return string
      */
-    public function getMailBody()
+    public function getMailBody(): string
     {
         return $this->mailBody;
     }
@@ -92,7 +92,7 @@ class Mail extends AbstractEntity
      * @param string $mailBody
      * @return void
      */
-    public function setMailBody($mailBody)
+    public function setMailBody(string $mailBody)
     {
         $this->mailBody = $mailBody;
     }
@@ -102,7 +102,7 @@ class Mail extends AbstractEntity
      *
      * @return string
      */
-    public function getMailReceiver()
+    public function getMailReceiver(): string
     {
         return $this->mailReceiver;
     }
@@ -113,7 +113,7 @@ class Mail extends AbstractEntity
      * @param string $mailReceiver
      * @return void
      */
-    public function setMailReceiver($mailReceiver)
+    public function setMailReceiver(string $mailReceiver)
     {
         $this->mailReceiver = $mailReceiver;
     }
@@ -123,7 +123,7 @@ class Mail extends AbstractEntity
      *
      * @return string
      */
-    public function getMailReceiverCc()
+    public function getMailReceiverCc(): string
     {
         return $this->mailReceiverCc;
     }
@@ -134,7 +134,7 @@ class Mail extends AbstractEntity
      * @param string $mailReceiverCc
      * @return void
      */
-    public function setMailReceiverCc($mailReceiverCc)
+    public function setMailReceiverCc(string $mailReceiverCc)
     {
         $this->mailReceiverCc = $mailReceiverCc;
     }
@@ -144,7 +144,7 @@ class Mail extends AbstractEntity
      *
      * @return string
      */
-    public function getMailReceiverBcc()
+    public function getMailReceiverBcc(): string
     {
         return $this->mailReceiverBcc;
     }
@@ -155,7 +155,7 @@ class Mail extends AbstractEntity
      * @param string $mailReceiverBcc
      * @return void
      */
-    public function setMailReceiverBcc($mailReceiverBcc)
+    public function setMailReceiverBcc(string $mailReceiverBcc)
     {
         $this->mailReceiverBcc = $mailReceiverBcc;
     }
@@ -165,7 +165,7 @@ class Mail extends AbstractEntity
      *
      * @return string
      */
-    public function getMailSender()
+    public function getMailSender(): string
     {
         return $this->mailSender;
     }
@@ -176,7 +176,7 @@ class Mail extends AbstractEntity
      * @param string $mailSender
      * @return void
      */
-    public function setMailSender($mailSender)
+    public function setMailSender(string $mailSender)
     {
         $this->mailSender = $mailSender;
     }
@@ -186,7 +186,7 @@ class Mail extends AbstractEntity
      *
      * @return string
      */
-    public function getMailReturnPath()
+    public function getMailReturnPath(): string
     {
         return $this->mailReturnPath;
     }
@@ -197,7 +197,7 @@ class Mail extends AbstractEntity
      * @param string $mailReturnPath
      * @return void
      */
-    public function setMailReturnPath($mailReturnPath)
+    public function setMailReturnPath(string $mailReturnPath)
     {
         $this->mailReturnPath = $mailReturnPath;
     }
@@ -207,7 +207,7 @@ class Mail extends AbstractEntity
      *
      * @return string
      */
-    public function getMailReplyTo()
+    public function getMailReplyTo(): string
     {
         return $this->mailReplyTo;
     }
@@ -218,7 +218,7 @@ class Mail extends AbstractEntity
      * @param string $mailReplyTo
      * @return void
      */
-    public function setMailReplyTo($mailReplyTo)
+    public function setMailReplyTo(string $mailReplyTo)
     {
         $this->mailReplyTo = $mailReplyTo;
     }

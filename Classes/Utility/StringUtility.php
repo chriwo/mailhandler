@@ -19,7 +19,7 @@ class StringUtility
      * @param array $variables Variables
      * @return string Parsed string
      */
-    public static function fluidParseString($string, $variables = [])
+    public static function fluidParseString(string $string, array $variables = []): string
     {
         /** @var \TYPO3\CMS\Fluid\View\StandaloneView $parseObject */
         $parseObject = GeneralUtility::makeInstance(ObjectManager::class)->get(StandaloneView::class);
@@ -37,7 +37,7 @@ class StringUtility
      * @param string $content HTML Mail bodytext
      * @return string $content
      */
-    public static function makePlain($content)
+    public static function makePlain(string $content): string
     {
         $tags2LineBreaks = [
             '</p>',
@@ -85,7 +85,7 @@ class StringUtility
      * @param string $content
      * @return string
      */
-    public static function br2nl($content)
+    public static function br2nl(string $content): string
     {
         $array = [
             '<br >',
@@ -108,7 +108,7 @@ class StringUtility
      * @return string rendered html code
      * @see HtmlViewHelper of TYPO3 core
      */
-    public static function formatHtml($value, $parseFuncTSPath = 'lib.parseFunc_RTE')
+    public static function formatHtml(string $value, string $parseFuncTSPath = 'lib.parseFunc_RTE'): string
     {
         $contentObject = GeneralUtility::makeInstance(ContentObjectRenderer::class);
 
