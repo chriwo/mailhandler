@@ -13,12 +13,17 @@ interface MailServiceInterface
      * @param array $data
      * @param array $overrideOptions
      * @param array $additionalAttachment
-     * @return bool
      */
     public function process(
         int $templateRecord,
         string $receiver,
         array $data,
         array $overrideOptions,
-        array $additionalAttachment): bool;
+        array $additionalAttachment): void;
+
+    /**
+     * Returns the submit status of an email
+     * @return bool
+     */
+    public function isMailSend(): bool;
 }

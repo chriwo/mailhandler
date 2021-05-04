@@ -14,7 +14,15 @@ class MailService extends AbstractMailService implements MailServiceInterface
 {
     use MailServiceTrait;
 
-    protected $attachments = [];
+    /**
+     * @var array
+     */
+    protected array $attachments = [];
+
+    /**
+     * @var bool
+     */
+    protected bool $mailIsSend = false;
 
     /**
      * Send an email to insurer.
@@ -25,24 +33,29 @@ class MailService extends AbstractMailService implements MailServiceInterface
      * @param array $overrideOptions
      * @param array $additionalAttachment
      * @throws \Exception
-     * @return bool
      */
     public function process(
-        $templateRecord,
-        $receiver,
+        int $templateRecord,
+        string $receiver,
         array $data = [],
         array $overrideOptions = [],
         array $additionalAttachment = []
-    ): bool {
-        $submitResult = false;
+    ): void {
         $this->attachments = $additionalAttachment;
 
         $this->loadMailTemplateRecord($templateRecord);
-        if (!$this->mailTemplate instanceof Mail) {
-            return $submitResult;
+        if ($this->mailTemplate instanceof Mail) {
+            $this->buildEmail($receiver, $data, $overrideOptions);
         }
+    }
 
-        return $this->buildEmail($receiver, $data, $overrideOptions);
+    /**
+     * Returns the submit status of an email
+     * @return bool
+     */
+    public function isMailSend(): bool
+    {
+        return $this->mailIsSend;
     }
 
     /**
@@ -54,7 +67,7 @@ class MailService extends AbstractMailService implements MailServiceInterface
      * @throws \Exception
      * @return bool
      */
-    protected function buildEmail(string $mailReceiver, array $data = [], array $overrideOptions = []): bool
+    protected function buildEmail(string $mailReceiver, array $data = [], array $overrideOptions = []): void
     {
         $mail = [
             'subject' => $this->mailTemplate->getMailSubject(),
@@ -68,10 +81,10 @@ class MailService extends AbstractMailService implements MailServiceInterface
         $mail = array_merge($mail, $overrideOptions);
 
         if (!GeneralUtility::validEmail($mail['receiverEmail']) || !GeneralUtility::validEmail($mail['senderEmail'])) {
-            return false;
+            $this->mailIsSend = false;
         }
 
-        return self::sendEmail($mail);
+        self::sendEmail($mail);
     }
 
     /**
@@ -79,9 +92,8 @@ class MailService extends AbstractMailService implements MailServiceInterface
      *
      * @param array $email
      * @throws \Exception
-     * @return bool
      */
-    protected function sendEmail(array $email): bool
+    protected function sendEmail(array $email): void
     {
         /** @var MailMessage $message */
         $message = GeneralUtility::makeInstance(MailMessage::class);
@@ -99,8 +111,7 @@ class MailService extends AbstractMailService implements MailServiceInterface
         $message = $this->addAttachments($message);
 
         $message->send();
-
-        return $message->isSent();
+        $this->mailIsSend = $message->isSent();
     }
 
     /**
