@@ -12,17 +12,17 @@ trait MailServiceTrait
      *
      * @param array $email
      * @param string $receiver
-     * @param string $overwriteReceiver
+     * @param string $overrideReceiver
      * @return void
      */
-    protected function addEmailReceiver(array &$email, $receiver, $overwriteReceiver = '')
+    protected function addEmailReceiver(array &$email, $receiver, $overrideReceiver = '')
     {
         $mailReceiver = GeneralUtility::trimExplode('|', $receiver, true);
         $email['receiverEmail'] = $mailReceiver[1];
         $email['receiverName'] = $mailReceiver[0];
 
-        if (!empty($overwriteReceiver)) {
-            $mailReceiver = GeneralUtility::trimExplode('|', $overwriteReceiver, true);
+        if (!empty($overrideReceiver)) {
+            $mailReceiver = GeneralUtility::trimExplode('|', $overrideReceiver, true);
             $email['receiverEmail'] = $mailReceiver[1];
             $email['receiverName'] = $mailReceiver[0];
         }
