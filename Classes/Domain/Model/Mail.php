@@ -13,42 +13,42 @@ class Mail extends AbstractEntity
     /**
      * @var string
      */
-    protected string $mailSubject;
+    protected string $mailSubject = '';
 
     /**
      * @var string
      */
-    protected string $mailBody;
+    protected string $mailBody = '';
 
     /**
      * @var string
      */
-    protected string $mailReceiver;
+    protected string $mailReceiver = '';
 
     /**
      * @var string
      */
-    protected string $mailReceiverCc;
+    protected string $mailReceiverCc = '';
 
     /**
      * @var string
      */
-    protected string $mailReceiverBcc;
+    protected string $mailReceiverBcc = '';
 
     /**
      * @var string
      */
-    protected string $mailSender;
+    protected string $mailSender = '';
 
     /**
      * @var string
      */
-    protected string $mailReturnPath;
+    protected string $mailReturnPath = '';
 
     /**
      * @var string
      */
-    protected string $mailReplyTo;
+    protected string $mailReplyTo = '';
 
     /**
      * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\FileReference>
