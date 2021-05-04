@@ -32,5 +32,10 @@
 		"psr-4": {
 			"ChriWo\\Mailhandler\\": "Classes/"
 		}
+	},
+	"extra" : {
+		"typo3/cms" : {
+			"extension-key": "mailhandler"
+		}
 	}
 }
