@@ -65,7 +65,7 @@ class MailService extends AbstractMailService implements MailServiceInterface
      * @param array $data
      * @param array $overrideOptions
      * @throws \Exception
-     * @return bool
+     * @todo add an log entry if email validation failed
      */
     protected function buildEmail(string $mailReceiver, array $data = [], array $overrideOptions = []): void
     {
