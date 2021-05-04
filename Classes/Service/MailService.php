@@ -22,7 +22,7 @@ class MailService extends AbstractMailService implements MailServiceInterface
      * @param int $templateRecord
      * @param string $receiver
      * @param array $data
-     * @param array $overwriteOptions
+     * @param array $overrideOptions
      * @param array $additionalAttachment
      * @throws \Exception
      * @return bool
@@ -31,7 +31,7 @@ class MailService extends AbstractMailService implements MailServiceInterface
         $templateRecord,
         $receiver,
         array $data = [],
-        array $overwriteOptions = [],
+        array $overrideOptions = [],
         array $additionalAttachment = []
     ): bool {
         $submitResult = false;
@@ -42,7 +42,7 @@ class MailService extends AbstractMailService implements MailServiceInterface
             return $submitResult;
         }
 
-        return $this->buildEmail($receiver, $data, $overwriteOptions);
+        return $this->buildEmail($receiver, $data, $overrideOptions);
     }
 
     /**
@@ -50,11 +50,11 @@ class MailService extends AbstractMailService implements MailServiceInterface
      *
      * @param string $mailReceiver
      * @param array $data
-     * @param array $overwriteOptions
+     * @param array $overrideOptions
      * @throws \Exception
      * @return bool
      */
-    protected function buildEmail($mailReceiver, array $data = [], array $overwriteOptions = []): bool
+    protected function buildEmail($mailReceiver, array $data = [], array $overrideOptions = []): bool
     {
         $mail = [
             'subject' => $this->mailTemplate->getMailSubject(),
@@ -65,7 +65,7 @@ class MailService extends AbstractMailService implements MailServiceInterface
 
         $this->addEmailReceiver($mail, $mailReceiver, $this->mailTemplate->getMailReceiver());
         $this->addEmailSender($mail, $this->mailTemplate->getMailSender());
-        $mail = array_merge($mail, $overwriteOptions);
+        $mail = array_merge($mail, $overrideOptions);
 
         if (!GeneralUtility::validEmail($mail['receiverEmail']) || !GeneralUtility::validEmail($mail['senderEmail'])) {
             return false;
