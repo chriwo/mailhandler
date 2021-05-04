@@ -89,7 +89,7 @@ class MailService extends AbstractMailService implements MailServiceInterface
             ->setTo([$email['receiverEmail'] => $email['receiverName']])
             ->setFrom([$email['senderEmail'] => $email['senderName']])
             ->setSubject(StringUtility::fluidParseString($email['subject'], $email['variables']))
-            ->setCharset('utf8');
+        ;
         $message = $this->addCc($message);
         $message = $this->addBcc($message);
         $message = $this->addReplyTo($message);
