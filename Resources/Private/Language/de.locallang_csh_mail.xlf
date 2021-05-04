@@ -62,8 +62,9 @@
 			<trans-unit id="mail_return_path.syntax">
 				<target>return-path@domain.com</target>
 			</trans-unit>
-			<trans-unit id="mail_reply_to.details">
-				<target>Eine oder mehrere Empfänger, an die eine Antwort auf die E-Mail geschickt werden soll (falls unterschiedlich zum Absender)</target>
+			<trans-unit id="mail_reply_to.description">
+				<source>One or more recipients to whom a reply to the e-mail should be sent (if different from the sender)</source>
+				<target>Ein oder mehrere Empfänger, an die eine Antwort auf die E-Mail geschickt werden soll (falls unterschiedlich zum Absender)</target>
 			</trans-unit>
 			<trans-unit id="mail_reply_to.syntax">
 				<target>John Doe|john.d@domain.com</target>
