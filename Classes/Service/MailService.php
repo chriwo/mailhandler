@@ -237,20 +237,8 @@ class MailService extends AbstractMailService implements MailServiceInterface
                 );
 
                 if (file_exists($attachmentFilePath)) {
-                    $message->attach(
-                        \Swift_Attachment::fromPath($attachmentFilePath)
-                    );
+                    $message->attachFromPath($attachmentFilePath);
                 }
-            }
-        }
-
-        if (!empty($this->attachments)) {
-            foreach ($this->attachments as $attachment) {
-                $message->attach(\Swift_Attachment::newInstance(
-                    $attachment['fileContent'],
-                    $attachment['fileName'],
-                    $attachment['contentType']
-                ));
             }
         }
 
