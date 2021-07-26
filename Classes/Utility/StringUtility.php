@@ -98,6 +98,17 @@ class StringUtility
     }
 
     /**
+     * Function nl2br.
+     *
+     * @param string $content
+     * @return string
+     */
+    public static function nl2br(string $content): string
+    {
+        return nl2br($content);
+    }
+
+    /**
      * Renders a string by passing it to a TYPO3 parseFunc.
      * You can either specify a path to the TypoScript setting or set the parseFunc options directly.
      * By default lib.parseFunc_RTE is used to parse the string.

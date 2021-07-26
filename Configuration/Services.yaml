@@ -6,3 +6,7 @@ services:
 
   ChriWo\Mailhandler\:
     resource: '../Classes/*'
+
+  # Do not auto wire constructors of event classes
+  ChriWo\Mailhandler\Event\BeforeMailSendEvent:
+    autowire: false

@@ -4,6 +4,7 @@ namespace ChriWo\Mailhandler\Service;
 
 use ChriWo\Mailhandler\Domain\Repository\MailRepository;
 use ChriWo\Mailhandler\Utility\ObjectUtility;
+use TYPO3\CMS\Core\EventDispatcher\EventDispatcher;
 use TYPO3\CMS\Core\Mail\MailMessage;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
@@ -12,6 +13,8 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
  */
 abstract class AbstractMailService
 {
+    protected EventDispatcher $eventDispatcher;
+
     /**
      * @var \ChriWo\Mailhandler\Domain\Repository\MailRepository
      */
@@ -30,8 +33,9 @@ abstract class AbstractMailService
     /**
      * AbstractMailService constructor.
      */
-    public function __construct()
+    public function __construct(EventDispatcher $eventDispatcher)
     {
+        $this->eventDispatcher = $eventDispatcher;
         $this->mailRepository = ObjectUtility::getObjectManager()->get(MailRepository::class);
         $this->mailMessage = GeneralUtility::makeInstance(MailMessage::class);
     }

@@ -3,6 +3,7 @@ declare(strict_types=1);
 namespace ChriWo\Mailhandler\Service;
 
 use ChriWo\Mailhandler\Domain\Model\Mail;
+use ChriWo\Mailhandler\Event\BeforeMailSendEvent;
 use ChriWo\Mailhandler\Utility\StringUtility;
 use TYPO3\CMS\Core\Mail\MailMessage;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
@@ -109,6 +110,8 @@ class MailService extends AbstractMailService implements MailServiceInterface
         $message = $this->addHtmlBody($message, $email);
         $message = $this->addPlainBody($message, $email);
         $message = $this->addAttachments($message);
+
+        $message = $this->eventDispatcher->dispatch(new BeforeMailSendEvent($message, $email))->getMessageData();
 
         $message->send();
         $this->mailIsSend = $message->isSent();
