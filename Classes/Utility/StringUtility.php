@@ -17,14 +17,15 @@ class StringUtility
      *
      * @param string $string Any string
      * @param array $variables Variables
+     * @param string $format Default value is 'html'
      * @return string Parsed string
      */
-    public static function fluidParseString(string $string, array $variables = []): string
+    public static function fluidParseString(string $string, array $variables = [], string $format = 'html'): string
     {
         /** @var \TYPO3\CMS\Fluid\View\StandaloneView $parseObject */
         $parseObject = GeneralUtility::makeInstance(ObjectManager::class)->get(StandaloneView::class);
         $parseObject->setTemplateSource($string);
-        $parseObject->setFormat('html');
+        $parseObject->setFormat($format);
         $parseObject->assignMultiple($variables);
 
         return $parseObject->render();
