@@ -220,6 +220,16 @@ class MailService extends AbstractMailService implements MailServiceInterface
             }
         }
 
+        if (!empty($this->attachments)) {
+            foreach ($this->attachments as $attachment) {
+                $message->embed(
+                    $attachment['fileContent'],
+                    $attachment['fileName'],
+                    $attachment['contentType']
+                );
+            }
+        }
+
         return $message;
     }
 }
