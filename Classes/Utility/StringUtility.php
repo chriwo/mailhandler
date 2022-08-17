@@ -3,7 +3,6 @@ declare(strict_types=1);
 namespace ChriWo\Mailhandler\Utility;
 
 use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3\CMS\Extbase\Object\ObjectManager;
 use TYPO3\CMS\Fluid\View\StandaloneView;
 use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
 
@@ -14,16 +13,11 @@ class StringUtility
 {
     /**
      * Parse String with Fluid View.
-     *
-     * @param string $string Any string
-     * @param array $variables Variables
-     * @param string $format Default value is 'html'
-     * @return string Parsed string
      */
     public static function fluidParseString(string $string, array $variables = [], string $format = 'html'): string
     {
         /** @var \TYPO3\CMS\Fluid\View\StandaloneView $parseObject */
-        $parseObject = GeneralUtility::makeInstance(ObjectManager::class)->get(StandaloneView::class);
+        $parseObject = GeneralUtility::makeInstance(StandaloneView::class);
         $parseObject->setTemplateSource($string);
         $parseObject->setFormat($format);
         $parseObject->assignMultiple($variables);
@@ -33,10 +27,7 @@ class StringUtility
 
     /**
      * Function makePlain() removes html tags and add linebreaks
-     *        Easy generate a plain email bodytext from a html bodytext.
-     *
-     * @param string $content HTML Mail bodytext
-     * @return string $content
+     * Easy generate a plain email bodytext from a html bodytext.
      */
     public static function makePlain(string $content): string
     {
@@ -82,9 +73,6 @@ class StringUtility
 
     /**
      * Function br2nl is the opposite of nl2br.
-     *
-     * @param string $content
-     * @return string
      */
     public static function br2nl(string $content): string
     {
@@ -100,9 +88,6 @@ class StringUtility
 
     /**
      * Function nl2br.
-     *
-     * @param string $content
-     * @return string
      */
     public static function nl2br(string $content): string
     {
@@ -112,12 +97,9 @@ class StringUtility
     /**
      * Renders a string by passing it to a TYPO3 parseFunc.
      * You can either specify a path to the TypoScript setting or set the parseFunc options directly.
-     * By default lib.parseFunc_RTE is used to parse the string.
+     * By default, lib.parseFunc_RTE is used to parse the string.
      *
-     * @param string $value string to render into html code
-     * @param string $parseFuncTSPath
      * @throws \InvalidArgumentException
-     * @return string rendered html code
      * @see HtmlViewHelper of TYPO3 core
      */
     public static function formatHtml(string $value, string $parseFuncTSPath = 'lib.parseFunc_RTE'): string

@@ -1,4 +1,5 @@
 <?php
+
 defined('TYPO3_MODE') || die();
 
 return (function () {
@@ -82,14 +83,6 @@ return (function () {
                     ],
                     'default' => 0,
                 ]
-            ],
-            't3ver_label' => [
-                'label' => 'LLL:EXT:lang/Resources/Private/Language/locallang_general.xlf:LGL.versionLabel',
-                'config' => [
-                    'type' => 'input',
-                    'size' => 30,
-                    'max' => 255,
-                ],
             ],
             'l10n_diffsource' => [
                 'config' => [

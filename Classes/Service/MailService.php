@@ -1,5 +1,7 @@
 <?php
+
 declare(strict_types=1);
+
 namespace ChriWo\Mailhandler\Service;
 
 use ChriWo\Mailhandler\Domain\Model\Mail;
@@ -15,24 +17,13 @@ class MailService extends AbstractMailService implements MailServiceInterface
 {
     use MailServiceTrait;
 
-    /**
-     * @var array
-     */
     protected array $attachments = [];
 
-    /**
-     * @var bool
-     */
     protected bool $mailIsSend = false;
 
     /**
-     * Send an email to insurer.
+     * Send email to insurer.
      *
-     * @param int $templateRecord
-     * @param string $receiver
-     * @param array $data
-     * @param array $overrideOptions
-     * @param array $additionalAttachment
      * @throws \Exception
      */
     public function process(
@@ -51,8 +42,7 @@ class MailService extends AbstractMailService implements MailServiceInterface
     }
 
     /**
-     * Returns the submit status of an email
-     * @return bool
+     * Returns submit status of an email
      */
     public function isMailSend(): bool
     {
@@ -62,9 +52,6 @@ class MailService extends AbstractMailService implements MailServiceInterface
     /**
      * Create the basics for email shipping and submit the email.
      *
-     * @param string $mailReceiver
-     * @param array $data
-     * @param array $overrideOptions
      * @throws \Exception
      * @todo add an log entry if email validation failed
      */
@@ -91,7 +78,6 @@ class MailService extends AbstractMailService implements MailServiceInterface
     /**
      * Submit an email.
      *
-     * @param array $email
      * @throws \Exception
      */
     protected function sendEmail(array $email): void
@@ -119,9 +105,6 @@ class MailService extends AbstractMailService implements MailServiceInterface
 
     /**
      * Add cc receiver.
-     *
-     * @param \TYPO3\CMS\Core\Mail\MailMessage $message
-     * @return MailMessage
      */
     protected function addCc(MailMessage $message): MailMessage
     {
@@ -141,9 +124,7 @@ class MailService extends AbstractMailService implements MailServiceInterface
     /**
      * Add bcc receiver from extension configuration.
      *
-     * @param MailMessage $message
      * @throws \Exception
-     * @return MailMessage
      */
     protected function addBcc(MailMessage $message): MailMessage
     {
@@ -165,9 +146,6 @@ class MailService extends AbstractMailService implements MailServiceInterface
 
     /**
      * Add ReplyTo receiver.
-     *
-     * @param MailMessage $message
-     * @return MailMessage
      */
     protected function addReplyTo(MailMessage $message): MailMessage
     {
@@ -189,9 +167,6 @@ class MailService extends AbstractMailService implements MailServiceInterface
 
     /**
      * Add ReturnPath / error-receiver.
-     *
-     * @param MailMessage $message
-     * @return MailMessage
      */
     protected function addReturnPath(MailMessage $message): MailMessage
     {
@@ -205,10 +180,6 @@ class MailService extends AbstractMailService implements MailServiceInterface
 
     /**
      * Add the html email body.
-     *
-     * @param \TYPO3\CMS\Core\Mail\MailMessage $message
-     * @param array $email
-     * @return \TYPO3\CMS\Core\Mail\MailMessage
      */
     protected function addHtmlBody(MailMessage $message, array $email): MailMessage
     {
@@ -221,10 +192,6 @@ class MailService extends AbstractMailService implements MailServiceInterface
 
     /**
      * Add the plaintext email body.
-     *
-     * @param \TYPO3\CMS\Core\Mail\MailMessage $message
-     * @param array $email
-     * @return \TYPO3\CMS\Core\Mail\MailMessage
      */
     protected function addPlainBody(MailMessage $message, array $email): MailMessage
     {
@@ -237,9 +204,6 @@ class MailService extends AbstractMailService implements MailServiceInterface
 
     /**
      * Add documents as attachment.
-     *
-     * @param MailMessage $message
-     * @return MailMessage
      */
     protected function addAttachments(MailMessage $message): MailMessage
     {
