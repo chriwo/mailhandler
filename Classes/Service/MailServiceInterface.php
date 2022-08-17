@@ -1,7 +1,5 @@
 <?php
-
 declare(strict_types=1);
-
 namespace ChriWo\Mailhandler\Service;
 
 /**
@@ -9,6 +7,13 @@ namespace ChriWo\Mailhandler\Service;
  */
 interface MailServiceInterface
 {
+    /**
+     * @param int $templateRecord
+     * @param string $receiver
+     * @param array $data
+     * @param array $overrideOptions
+     * @param array $additionalAttachment
+     */
     public function process(
         int $templateRecord,
         string $receiver,
@@ -17,7 +22,8 @@ interface MailServiceInterface
         array $additionalAttachment): void;
 
     /**
-     * Returns submit status of an email
+     * Returns the submit status of an email
+     * @return bool
      */
     public function isMailSend(): bool;
 }

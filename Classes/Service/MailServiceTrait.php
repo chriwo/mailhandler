@@ -1,7 +1,5 @@
 <?php
-
 declare(strict_types=1);
-
 namespace ChriWo\Mailhandler\Service;
 
 use ChriWo\Mailhandler\Utility\StringUtility;
@@ -11,6 +9,11 @@ trait MailServiceTrait
 {
     /**
      * Add the email receiver.
+     *
+     * @param array $email
+     * @param string $receiver
+     * @param string $overrideReceiver
+     * @return void
      */
     protected function addEmailReceiver(array &$email, string $receiver, string $overrideReceiver = '')
     {
@@ -28,7 +31,10 @@ trait MailServiceTrait
     /**
      * Add the sender email address and sender name.
      *
+     * @param array $email
+     * @param string $sender
      * @throws \Exception
+     * @return void
      */
     protected function addEmailSender(array &$email, string $sender)
     {
@@ -39,6 +45,9 @@ trait MailServiceTrait
 
     /**
      * Add mail body html.
+     *
+     * @param array $email
+     * @return string
      */
     protected function getHtmlBody(array $email): string
     {
@@ -47,6 +56,9 @@ trait MailServiceTrait
 
     /**
      * Add mail body plain.
+     *
+     * @param array $email
+     * @return string
      */
     protected function getPlainBody(array $email): string
     {

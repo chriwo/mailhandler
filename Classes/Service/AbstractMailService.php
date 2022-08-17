@@ -1,11 +1,9 @@
 <?php
-
 declare(strict_types=1);
-
 namespace ChriWo\Mailhandler\Service;
 
-use ChriWo\Mailhandler\Domain\Model\Mail;
 use ChriWo\Mailhandler\Domain\Repository\MailRepository;
+use ChriWo\Mailhandler\Utility\ObjectUtility;
 use TYPO3\CMS\Core\EventDispatcher\EventDispatcher;
 use TYPO3\CMS\Core\Mail\MailMessage;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
@@ -17,11 +15,20 @@ abstract class AbstractMailService
 {
     protected EventDispatcher $eventDispatcher;
 
-    protected ?MailRepository $mailRepository;
+    /**
+     * @var \ChriWo\Mailhandler\Domain\Repository\MailRepository
+     */
+    protected $mailRepository;
 
-    protected ?Mail $mailTemplate;
+    /**
+     * @var \ChriWo\Mailhandler\Domain\Model\Mail
+     */
+    protected $mailTemplate;
 
-    protected ?MailMessage $mailMessage;
+    /**
+     * @var \TYPO3\CMS\Core\Mail\MailMessage
+     */
+    protected $mailMessage;
 
     /**
      * AbstractMailService constructor.
@@ -29,10 +36,14 @@ abstract class AbstractMailService
     public function __construct(EventDispatcher $eventDispatcher)
     {
         $this->eventDispatcher = $eventDispatcher;
-        $this->mailRepository = GeneralUtility::makeInstance(MailRepository::class);
+        $this->mailRepository = ObjectUtility::getObjectManager()->get(MailRepository::class);
         $this->mailMessage = GeneralUtility::makeInstance(MailMessage::class);
     }
 
+    /**
+     * @param int $record
+     * @return void
+     */
     protected function loadMailTemplateRecord(int $record)
     {
         $this->mailTemplate = $this->mailRepository->findByUid($record);

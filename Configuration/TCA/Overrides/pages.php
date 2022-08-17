@@ -1,6 +1,5 @@
 <?php
-
-defined('TYPO3') || die();
+defined('TYPO3_MODE') || die();
 
 $GLOBALS['TCA']['pages']['columns']['module']['config']['items'][] = [
     0 => 'LLL:EXT:mailhandler/Resources/Private/Language/locallang_be.xlf:mailhandler-folder',
